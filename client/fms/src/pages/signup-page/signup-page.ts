@@ -12,6 +12,9 @@ export class SignupPage {
   role: string;
   email: string;
   password: string;
+  fullname: string;
+  company: string;
+  address: string;
   loading: any;
  
   constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
@@ -25,7 +28,10 @@ export class SignupPage {
     let details = {
         email: this.email,
         password: this.password,
-        role: this.role
+        fullname: this.fullname,
+        company: this.company,
+        role: this.role,
+        address: this.address
     };
  
     this.authService.createAccount(details).then((result) => {

@@ -18,14 +18,14 @@ export class Auth {
  
         //Load token if exists
         this.storage.get('token').then((value) => {
- 
             this.token = value;
- 
+          
             let headers = new Headers();
             headers.append('Authorization', this.token);
- 
+              
             this.http.get('http://' + location.hostname + ':8080/api/auth/protected', {headers: headers})
                 .subscribe(res => {
+                    console.log("res= " + res);
                     resolve(res);
                 }, (err) => {
                     reject(err);
@@ -66,11 +66,12 @@ export class Auth {
  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
- 
+
         this.http.post('http://' + location.hostname + ':8080/api/auth/login', JSON.stringify(credentials), {headers: headers})
           .subscribe(res => {
  
             let data = res.json();
+            console.log(data);
             this.token = data.token;
             this.storage.set('token', data.token);
             resolve(data);

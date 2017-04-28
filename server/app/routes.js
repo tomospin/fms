@@ -1,17 +1,18 @@
 var AuthenticationController = require('./controllers/authentication'),  
-    TodoController = require('./controllers/todos'),  
+    ProductController = require('./controllers/products'),  
     express = require('express'),
     passportService = require('../config/passport'),
     passport = require('passport');
  
+ 
 var requireAuth = passport.authenticate('jwt', {session: false}),
-    requireLogin = passport.authenticate('local', {session: false});
+    requireLogin = passport.authenticate('local', {session: false, failureFlash: true});
  
 module.exports = function(app){
  
     var apiRoutes = express.Router(),
         authRoutes = express.Router(),
-        todoRoutes = express.Router();
+        productRoutes = express.Router();
  
     // Auth Routes
     apiRoutes.use('/auth', authRoutes);
@@ -23,12 +24,12 @@ module.exports = function(app){
         res.send({ content: 'Success'});
     });
  
-    // Todo Routes
-    apiRoutes.use('/todos', todoRoutes);
+    // Product Routes
+    apiRoutes.use('/products', productRoutes);
  
-    todoRoutes.get('/', requireAuth, AuthenticationController.roleAuthorization(['reader','creator','editor']), TodoController.getTodos);
-    todoRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['creator','editor']), TodoController.createTodo);
-    todoRoutes.delete('/:todo_id', requireAuth, AuthenticationController.roleAuthorization(['editor']), TodoController.deleteTodo);
+    productRoutes.post('/show', requireAuth, AuthenticationController.roleAuthorization(['owner','minor']), ProductController.getProducts);
+    productRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['owner']), ProductController.createProduct);
+    productRoutes.delete('/:product_id', requireAuth, AuthenticationController.roleAuthorization(['owner']), ProductController.deleteProduct);
  
     // Set up routes
     app.use('/api', apiRoutes);

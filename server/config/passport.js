@@ -6,11 +6,13 @@ var ExtractJwt = require('passport-jwt').ExtractJwt;
 var LocalStrategy = require('passport-local').Strategy;
  
 var localOptions = {
-    usernameField: 'email'
+    usernameField: 'email',
+    passwordField: 'password'
+
 };
  
 var localLogin = new LocalStrategy(localOptions, function(email, password, done){
- 
+    console.log(email);
     User.findOne({
         email: email
     }, function(err, user){
@@ -32,7 +34,7 @@ var localLogin = new LocalStrategy(localOptions, function(email, password, done)
             if(!isMatch){
                 return done(null, false, {error: 'Login failed. Please try again.'});
             }
- 
+
             return done(null, user);
  
         });
@@ -47,7 +49,6 @@ var jwtOptions = {
 };
  
 var jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
- 
     User.findById(payload._id, function(err, user){
  
         if(err){
@@ -55,7 +56,7 @@ var jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
         }
  
         if(user){
-            done(null, user);
+            return done(null, user);
         } else {
             done(null, false);
         }
@@ -65,4 +66,4 @@ var jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
 });
  
 passport.use(jwtLogin);
-passport.use(localLogin);
+passport.use(localLogin); 

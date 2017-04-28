@@ -8,6 +8,7 @@ import { SignupPage } from '../signup-page/signup-page';
   selector: 'login-page',
   templateUrl: 'login-page.html'
 })
+
 export class LoginPage {
  
     email: string;
@@ -25,6 +26,7 @@ export class LoginPage {
         //Check if already authenticated
         this.authService.checkAuthentication().then((res) => {
             console.log("Already authorized");
+            console.log(res);
             this.loading.dismiss();
             this.navCtrl.setRoot(HomePage);
         }, (err) => {
@@ -41,11 +43,12 @@ export class LoginPage {
             email: this.email,
             password: this.password
         };
- 
+
         this.authService.login(credentials).then((result) => {
             this.loading.dismiss();
             console.log(result);
             this.navCtrl.setRoot(HomePage);
+
         }, (err) => {
             this.loading.dismiss();
             console.log(err);

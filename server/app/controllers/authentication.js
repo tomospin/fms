@@ -12,7 +12,10 @@ function setUserInfo(request){
     return {
         _id: request._id,
         email: request.email,
-        role: request.role
+        fullname: request.fullname,
+        company: request.company,
+        role: request.role,
+        address: request.address,
     };
 }
  
@@ -31,7 +34,10 @@ exports.register = function(req, res, next){
  
     var email = req.body.email;
     var password = req.body.password;
+    var fullname = req.body.fullname;
+    var company = req.body.company;
     var role = req.body.role;
+    var address = req.body.address;
  
     if(!email){
         return res.status(422).send({error: 'You must enter an email address'});
@@ -41,6 +47,22 @@ exports.register = function(req, res, next){
         return res.status(422).send({error: 'You must enter a password'});
     }
  
+    if(!fullname){
+        return res.status(422).send({error: 'You must enter your fullname'});
+    }
+
+    if(!company){
+        return res.status(422).send({error: 'You must enter your company name'});
+    }
+
+    if(!role){
+        return res.status(422).send({error: 'You must fill your role'});
+    }
+
+    if(!address){
+        return res.status(422).send({error: 'You must enter your address '});
+    }
+
     User.findOne({email: email}, function(err, existingUser){
  
         if(err){
@@ -54,7 +76,10 @@ exports.register = function(req, res, next){
         var user = new User({
             email: email,
             password: password,
-            role: role
+            fullname: fullname,
+            company: company,
+            role: role,
+            address: address
         });
  
         user.save(function(err, user){

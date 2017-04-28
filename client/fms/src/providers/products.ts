@@ -4,20 +4,21 @@ import { Auth } from './auth';
 import 'rxjs/add/operator/map';
  
 @Injectable()
-export class Todos {
+export class Products {
  
   constructor(public http: Http, public authService: Auth) {
  
   }
  
-  getTodos(){
+  getProducts(company){
  
     return new Promise((resolve, reject) => {
  
       let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
  
-      this.http.get('http://' + location.hostname + ':8080/api/todos', {headers: headers})
+      this.http.post('http://' + location.hostname + ':8080/api/products/show', JSON.stringify(company), {headers: headers})
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -28,7 +29,7 @@ export class Todos {
  
   }
  
-  createTodo(todo){
+  createProduct(product){
  
     return new Promise((resolve, reject) => {
  
@@ -36,7 +37,7 @@ export class Todos {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
  
-      this.http.post('http://' + location.hostname + ':8080/api/todos', JSON.stringify(todo), {headers: headers})
+      this.http.post('http://' + location.hostname + ':8080/api/products', JSON.stringify(product), {headers: headers})
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -48,14 +49,14 @@ export class Todos {
  
   }
  
-  deleteTodo(id){
+  deleteProduct(id){
  
     return new Promise((resolve, reject) => {
  
         let headers = new Headers();
         headers.append('Authorization', this.authService.token);
  
-        this.http.delete('http://' + location.hostname + ':8080/api/todos/' + id, {headers: headers}).subscribe((res) => {
+        this.http.delete('http://' + location.hostname + ':8080/api/products/' + id, {headers: headers}).subscribe((res) => {
             resolve(res);
         }, (err) => {
             reject(err);

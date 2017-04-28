@@ -1,10 +1,10 @@
 <ion-header>
  <ion-navbar color="secondary">
   <ion-title>
-    Todo Roles
+    Shop
   </ion-title>
   <ion-buttons end>
-    <button ion-button icon-only (click)="addTodo()"><ion-icon name="add"></ion-icon></button>
+    <button ion-button icon-only (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
   </ion-buttons>
   <ion-buttons start>
     <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
@@ -16,18 +16,20 @@
  
   <ion-list no-lines>
  
-    <ion-item-sliding *ngFor="let todo of todos">
+    <ion-item-sliding *ngFor="let product of products">
  
       <ion-item>
-        {{todo.title}}
+        {{product.name}} price = {{product.price}} $  quantity = {{product.quantity}} pieces
       </ion-item>
  
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteTodo(todo)">
+      <!-- <ion-item-options> -->
+      <ion-item>
+        <button ion-button color="danger" (click)="deleteProduct(product)">
           <ion-icon name="trash"></ion-icon>
           Delete
         </button>
-      </ion-item-options>
+      </ion-item>
+      <!-- </ion-item-options> -->
     </ion-item-sliding>
  
   </ion-list>

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController, ModalController, AlertController, LoadingController } from 'ionic-angular';
-import { Todos } from '../../providers/todos';
+import { Products } from '../../providers/products';
 import { Auth } from '../../providers/auth';
 import { LoginPage } from '../login-page/login-page';
  
@@ -10,32 +10,51 @@ import { LoginPage } from '../login-page/login-page';
 })
 export class HomePage {
  
-  todos: any;
+  products: any;
   loading: any;
- 
-  constructor(public navCtrl: NavController, public todoService: Todos, public modalCtrl: ModalController, 
+
+  constructor(public navCtrl: NavController, public productService: Products, public modalCtrl: ModalController, 
     public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
  
   }
  
   ionViewDidLoad(){
- 
-    this.todoService.getTodos().then((data) => {
-          this.todos = data;
+    this.productService.getProducts(this.products).then((data) => {
+          this.products = data;
     }, (err) => {
         console.log("not allowed");
     });
  
   }
  
-  addTodo(){
+  addProduct(){
  
     let prompt = this.alertCtrl.create({
-      title: 'Add Todo',
-      message: 'Describe your todo below:',
+      title: 'Add Product',
       inputs: [
         {
-          name: 'title'
+          name: 'name',
+          placeholder: 'Product name'
+        },
+        {
+          name: 'description',
+          placeholder: 'Product description'
+        },
+        // {
+        //   name: 'image',
+        //   placeholder: 'Product image'
+        // },
+        {
+          name: 'company',
+          placeholder: 'Product company'
+        },
+        {
+          name: 'quantity',
+          placeholder: 'Product quantity'
+        },
+        {
+          name: 'price',
+          placeholder: 'Product price'
         }
       ],
       buttons: [
@@ -44,16 +63,16 @@ export class HomePage {
         },
         {
           text: 'Save',
-          handler: todo => {
+          handler: product => {
  
-                if(todo){
+                if(product){
  
                     this.showLoader();
  
-                    this.todoService.createTodo(todo).then((result) => {
+                    this.productService.createProduct(product).then((result) => {
                         this.loading.dismiss();
-                        this.todos = result;
-                        console.log("todo created");
+                        this.products = result;
+                        console.log("product created");
                     }, (err) => {
                         this.loading.dismiss();
                         console.log("not allowed");
@@ -71,20 +90,20 @@ export class HomePage {
  
   }
  
-  deleteTodo(todo){
- 
+  deleteProduct(product){
+    
     this.showLoader();
  
     //Remove from database
-    this.todoService.deleteTodo(todo._id).then((result) => {
+    this.productService.deleteProduct(product._id).then((result) => {
  
       this.loading.dismiss();
  
       //Remove locally
-        let index = this.todos.indexOf(todo);
+        let index = this.products.indexOf(product);
  
         if(index > -1){
-            this.todos.splice(index, 1);
+            this.products.splice(index, 1);
         }   
  
     }, (err) => {

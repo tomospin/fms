@@ -7,7 +7,7 @@ import { IonicStorageModule } from '@ionic/storage'
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
-import { Todos } from '../providers/todos';
+import { Products } from '../providers/products';
 import { Auth } from '../providers/auth';
  
 @NgModule({
@@ -30,6 +30,6 @@ import { Auth } from '../providers/auth';
     LoginPage,
     SignupPage
   ],
-  providers: [Storage, Todos, Auth]
+  providers: [Storage, Products, Auth]
 })
 export class AppModule {}
