@@ -6,10 +6,13 @@
   <ion-buttons left>
     <button ion-button icon-only (click)="showMapPage()"><ion-icon name="map"></ion-icon></button>
   </ion-buttons>
-  <ion-buttons end>
-    <button ion-button icon-only *ngIf="owner" (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
+  <ion-buttons left>
+    <button ion-button icon-only (click)="showChatPage()"><ion-icon name="chatbubbles"></ion-icon></button>
   </ion-buttons>
   <ion-buttons start>
+    <button ion-button icon-only *ngIf="owner" (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
+  </ion-buttons>
+  <ion-buttons end>
     <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
   </ion-buttons>
  </ion-navbar>

@@ -9,6 +9,7 @@ import { Auth } from '../../providers/auth';
 import { LoginPage } from '../login-page/login-page';
 
 import { MapPage } from '../map-page/map-page';
+import { ChatPage } from '../chat-page/chat-page';
  
 @Component({
   selector: 'home-page',
@@ -89,24 +90,37 @@ export class HomePage {
  
   deleteProduct(product){
     
-    this.showLoader();
- 
-    //Remove from database
-    this.productService.deleteProduct(product._id).then((result) => {
- 
-      this.loading.dismiss();
- 
-      //Remove locally
-        let index = this.products.indexOf(product);
- 
-        if(index > -1){
-            this.products.splice(index, 1);
-        }   
- 
-    }, (err) => {
-      this.loading.dismiss();
-        console.log("not allowed");
-    });
+    let prompt = this.alertCtrl.create({
+      title: 'Confirmation',
+      subTitle: 'Delete ?',
+      buttons: [
+        { text: 'Cancel'},
+        { text: 'OK',
+          handler: () => {
+            this.showLoader();
+            //Remove from database
+            this.productService.deleteProduct(product._id).then((result) => {
+         
+              this.loading.dismiss();
+         
+              //Remove locally
+                let index = this.products.indexOf(product);
+         
+                if(index > -1){
+                    this.products.splice(index, 1);
+                }   
+         
+            }, (err) => {
+              this.loading.dismiss();
+                console.log("not allowed");
+            });
+          } // end handler
+        } // end OK
+      ] // end buttons
+    }); // end promt
+    prompt.present();
+
+    
   }
   
   showErrorAlert(errorMessage) {
@@ -128,16 +142,30 @@ export class HomePage {
  
   }
  
-  logout(){
- 
-    this.authService.logout();
-    this.navCtrl.setRoot(LoginPage);
- 
+  logout(){ 
+    let prompt = this.alertCtrl.create({
+      title: 'Confirmation',
+      subTitle: 'Logout ?',
+      buttons: [
+        { text: 'Cancel'},
+        { text: 'OK',
+          handler: () => {
+            this.authService.logout();
+            this.navCtrl.setRoot(LoginPage);
+          } // end handler
+        } // end OK
+      ] // end buttons
+    }); // end promt
+    prompt.present();
   }
 
   showMapPage() {
     this.navCtrl.push(MapPage);
-}
+  }
+
+  showChatPage() {
+    this.navCtrl.push(ChatPage);
+  }
 
  
 }

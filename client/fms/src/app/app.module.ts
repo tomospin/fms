@@ -14,14 +14,16 @@ import { Products } from '../providers/products';
 import { Auth } from '../providers/auth';
 
 import { MapPage } from '../pages/map-page/map-page';
- 
+import { ChatPage } from '../pages/chat-page/chat-page';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
     SignupPage,
-    MapPage
+    MapPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { MapPage } from '../pages/map-page/map-page';
     HomePage,
     LoginPage,
     SignupPage,
-    MapPage
+    MapPage,
+    ChatPage
   ],
   providers: [Products, Auth]
 })

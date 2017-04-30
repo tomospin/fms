@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Auth } from './auth';
-import { JwtHelper } from 'angular2-jwt';
 import 'rxjs/add/operator/map';
  
 @Injectable()
