@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
 import { HomePage } from '../home/home';
  
@@ -17,7 +17,7 @@ export class SignupPage {
   address: string;
   loading: any;
  
-  constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
  
   }
  
@@ -39,6 +39,12 @@ export class SignupPage {
       console.log(result);
       this.navCtrl.setRoot(HomePage);
     }, (err) => {
+        let errAlert = this.alertCtrl.create({
+            title: 'Error',
+            subTitle: JSON.parse(err._body).error,
+            buttons: ['Dismiss']
+        });
+        errAlert.present();
         this.loading.dismiss();
     });
  

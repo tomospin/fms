@@ -25,7 +25,6 @@ export class Auth {
               
             this.http.get('http://' + location.hostname + ':8080/api/auth/protected', {headers: headers})
                 .subscribe(res => {
-                    console.log("res= " + res);
                     resolve(res);
                 }, (err) => {
                     reject(err);
@@ -43,7 +42,7 @@ export class Auth {
  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
- 
+        
         this.http.post('http://' + location.hostname + ':8080/api/auth/register', JSON.stringify(details), {headers: headers})
           .subscribe(res => {
  
@@ -53,7 +52,7 @@ export class Auth {
             resolve(data);
  
           }, (err) => {
-            reject(err);
+              reject(err);
           });
  
     });
@@ -66,19 +65,18 @@ export class Auth {
  
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-
+        
         this.http.post('http://' + location.hostname + ':8080/api/auth/login', JSON.stringify(credentials), {headers: headers})
           .subscribe(res => {
  
             let data = res.json();
-            console.log(data);
             this.token = data.token;
             this.storage.set('token', data.token);
             resolve(data);
  
             resolve(res.json());
           }, (err) => {
-            reject(err);
+              reject(err);
           });
  
     });

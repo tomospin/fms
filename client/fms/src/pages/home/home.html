@@ -3,8 +3,11 @@
   <ion-title>
     Shop
   </ion-title>
+  <ion-buttons left>
+    <button ion-button icon-only (click)="showMapPage()"><ion-icon name="map"></ion-icon></button>
+  </ion-buttons>
   <ion-buttons end>
-    <button ion-button icon-only (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
+    <button ion-button icon-only *ngIf="owner" (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
   </ion-buttons>
   <ion-buttons start>
     <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
@@ -12,21 +15,38 @@
  </ion-navbar>
 </ion-header>
  
+
 <ion-content>
- 
+
   <ion-list no-lines>
- 
-    <ion-item-sliding *ngFor="let product of products">
- 
+     
+    <ion-item-sliding *ngFor="let product of products; let i = index">
+
       <ion-item>
-        {{product.name}} price = {{product.price}} $  quantity = {{product.quantity}} pieces
+
+        <ion-avatar item-left>
+          <img src="http://lorempixel.com/200/200/food/{{i}}">  <!-- dummy product's image [200x200,food,index] -->
+        </ion-avatar>
+
+        {{i+1}}: {{product.name}} <br>
+        Description: {{product.description}} <br>
+        Quantity: {{product.quantity}} pieces <br>
+        Price: {{product.price}} $  
       </ion-item>
  
       <!-- <ion-item-options> -->
       <ion-item>
-        <button ion-button color="danger" (click)="deleteProduct(product)">
+        <button ion-button color="danger" *ngIf="owner" (click)="deleteProduct(product)">
           <ion-icon name="trash"></ion-icon>
           Delete
+        </button>
+        <button ion-button color="secondary" *ngIf="owner">    
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+        <button ion-button color="secondary" *ngIf="!owner">    
+          <ion-icon name="cart"></ion-icon>
+          Buy
         </button>
       </ion-item>
       <!-- </ion-item-options> -->
@@ -35,3 +55,6 @@
   </ion-list>
  
 </ion-content>
+
+
+

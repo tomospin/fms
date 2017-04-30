@@ -1,7 +1,7 @@
 var Product = require('../models/product');
  
 exports.getProducts = function(req, res, next){
- 
+
     Product.find({'company': req.body.company}, function(err, products) {
  
         if (err){
@@ -15,7 +15,7 @@ exports.getProducts = function(req, res, next){
 }
  
 exports.createProduct = function(req, res, next){
- 
+    
     Product.create({
         name : req.body.name,
         description: req.body.description,

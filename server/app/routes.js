@@ -6,7 +6,7 @@ var AuthenticationController = require('./controllers/authentication'),
  
  
 var requireAuth = passport.authenticate('jwt', {session: false}),
-    requireLogin = passport.authenticate('local', {session: false, failureFlash: true});
+    requireLogin = passport.authenticate('local', {session: false});
  
 module.exports = function(app){
  
@@ -28,8 +28,8 @@ module.exports = function(app){
     apiRoutes.use('/products', productRoutes);
  
     productRoutes.post('/show', requireAuth, AuthenticationController.roleAuthorization(['owner','minor']), ProductController.getProducts);
-    productRoutes.post('/', requireAuth, AuthenticationController.roleAuthorization(['owner']), ProductController.createProduct);
-    productRoutes.delete('/:product_id', requireAuth, AuthenticationController.roleAuthorization(['owner']), ProductController.deleteProduct);
+    productRoutes.post('/create', requireAuth, AuthenticationController.roleAuthorization(['owner']), ProductController.createProduct);
+    productRoutes.delete('/delete/:product_id', requireAuth, AuthenticationController.roleAuthorization(['owner']), ProductController.deleteProduct);
  
     // Set up routes
     app.use('/api', apiRoutes);
