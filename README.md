@@ -7,11 +7,13 @@ Members: <br />
 * [**I**onic 2](http://ionicframework.com/docs/intro/installation/) frontend framework
 * [**A**ngular 2](https://angular.io): frontend framework
 * [**E**xpress.js](http://expressjs.com): backend framework
-* [**M**ongoose.js](http://www.mongoosejs.com) 
+* [**M**ongoose.js](http://www.mongoosejs.com) MongoDB object modeling tool 
 * [**N**ode.js](https://nodejs.org): runtime environment
 * ([MongoDB](https://www.mongodb.com)): database
-<br /> A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. <br />
-  This is a project in CPE333 Software Engineering.
+<br />
+A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. 
+<br />
+This is a project in CPE333 Software Engineering.
 
 ## Getting Started
 
