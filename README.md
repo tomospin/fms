@@ -3,7 +3,15 @@ Members: <br />
          1.Sirapat N.     57070503438  <br /> 
          2.Thanaboon M.   57070503414  <br /> 
          3.Chalaemkwan B. 57070503444  <br />
--        A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. <br />
+         This project uses the [MEAN stack](https://en.wikipedia.org/wiki/MEAN_(software_bundle)):
+* [**M**ongoose.js](http://www.mongoosejs.com) ([MongoDB](https://www.mongodb.com)): database
+* [**E**xpress.js](http://expressjs.com): backend framework
+* [**A**ngular 2](https://angular.io): frontend framework
+* [**N**ode.js](https://nodejs.org): runtime environment
+* [Angular CLI](https://cli.angular.io): project scaffolding
+* [Bootstrap](http://www.getbootstrap.com): layout and styles
+* [Font Awesome](http://fontawesome.io): icons
+A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. <br />
   This is a project in CPE333 Software Engineering.
 
 ## Getting Started
