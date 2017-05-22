@@ -9,7 +9,8 @@
     <ion-row class="login-form">
         <ion-col>
             <ion-list inset>
- 
+				<img class ="fullscreen" src="assets/icon/1.png" alt="">
+				<ion-label></ion-label>
               <ion-item>
                 <ion-label><ion-icon name="person"></ion-icon></ion-label>
                 <ion-input [(ngModel)]="email" placeholder="email" type="text"></ion-input>
@@ -22,15 +23,17 @@
  
             </ion-list>
  
-            <button ion-button full (click)="login()" color="primary" class="login-button">Login</button>
+            <button ion-button (click)="login()" color="primary" class="login-button">Login</button>
  
         </ion-col>
     </ion-row>
  
     <ion-row>
         <ion-col>
-            <button ion-button (click)="launchSignup()" class="create-account">Create an Account</button>
+            <button ion-button (click)="launchSignup()" color="primary" class="create-account">Create an Account</button>
+			
         </ion-col>
+		
     </ion-row>
  
 </ion-content>

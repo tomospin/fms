@@ -38,17 +38,31 @@
         }
  
         .create-account {
-            color: #fff;
+            color: #FFFFFF;
             text-decoration: underline;
-            background: none;
+			border-radius: 60px;
+			padding: 20px 75px;
+			font-size: 0.9em;
+            background: #2E64FE;
+			
+			border: 1px solid #fff;
         }
  
         .login-button {
-            border-radius: 30px;
+			color: #FFFFFF;
+            border-radius: 60px;
+			padding: 20px 120px;
             font-size: 0.9em;
-            background-color: transparent;
+            background-color: #FE2E2E;
             border: 1px solid #fff;
         }
+		
+		.fullscreen {
+		width: 60%;
+		height: 80%;
+		}
+		
+		
  
     }
  
