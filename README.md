@@ -15,7 +15,7 @@ A management system for managing sale orders between franchise owner and minor c
 <br />
 This is a project in CPE333 Software Engineering.
 
-## Prerequisites
+# Prerequisites
 1. Install [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com)
 ```
 $ brew install mongodb
@@ -42,3 +42,7 @@ In client folder
 ```
 $ ionic serve --lab
 ```
+
+# Screenshots
+![Screenshot](signup.png)
+![Screenshot](shop.png)
