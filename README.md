@@ -9,22 +9,26 @@ Members: <br />
 * [**E**xpress.js](http://expressjs.com): backend framework
 * [**M**ongoose.js](http://www.mongoosejs.com) MongoDB object modeling tool 
 * [**N**ode.js](https://nodejs.org): runtime environment
-* ([MongoDB](https://www.mongodb.com)): database
+* [MongoDB](https://www.mongodb.com): database
 <br />
 A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. 
 <br />
 This is a project in CPE333 Software Engineering.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
+## Prerequisites
+1. Install [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com)
 ```
-Give examples
+$ brew install mongodb
+```
+2. Install Ionic Client
+```
+$ npm install -g ionic cordova
+```
+3. In rootfolder install all the dependencies:
+```
+$ npm install
 ```
 
 ### Installing
