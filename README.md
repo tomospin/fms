@@ -3,7 +3,7 @@ Members: <br />
          1.Sirapat N.     57070503438  <br /> 
          2.Thanaboon M.   57070503414  <br /> 
          3.Chalaemkwan B. 57070503444  <br />
-  A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. <br />
+-        A management system for managing sale orders between franchise owner and minor companies/dealers. The system will allow the franchise owner to CRUD products’ informations. The minors/dealers can view and order the products. <br />
   This is a project in CPE333 Software Engineering.
 
 ## Getting Started
