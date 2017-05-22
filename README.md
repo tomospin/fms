@@ -42,3 +42,4 @@ In client folder
 ```
 $ ionic serve --lab
 ```
+![Screenshot](signup.png)
