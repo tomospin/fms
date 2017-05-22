@@ -1,7 +1,7 @@
 # Franchise Management System
 Members: 1.Sirapat N.     57070503438  <br />
-         2.Thanaboon M.   57070503414  <br />
-         3.Chalaemkwan B. 57070503444  <br />
+         </t>2.Thanaboon M.   57070503414  <br />
+         </t>3.Chalaemkwan B. 57070503444  <br />
   A management system for managing sale orders between franchise owner and minor companies/dealers in the same network. The system will allow the franchise owner to CRUD products’ informations/promotions. The minors/dealers can view and order the products. This system will be very helpful for any franchise owner who has a lot of minors/dealers.
   This is a project in CPE333 Software Engineering.
 
