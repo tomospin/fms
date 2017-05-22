@@ -44,5 +44,7 @@ $ ionic serve --lab
 ```
 
 # Screenshots
+![Screenshot](signin.png)
 ![Screenshot](signup.png)
 ![Screenshot](shop.png)
+![Screenshot](addProduct.png)
