@@ -1,7 +1,7 @@
 # Franchise Management System 
 Members: <br />
          1.Sirapat N.     57070503438  <br /> 
-         2.Thanaboon M.   57070503414  <br /> 
+         2.Thanaboon M.   57070503415  <br /> 
          3.Chalaemkwan B. 57070503444  <br />
 <br /> This project uses the [MEAN stack](https://en.wikipedia.org/wiki/MEAN_(software_bundle)):
 * [**I**onic 2](http://ionicframework.com/docs/intro/installation/) frontend framework
