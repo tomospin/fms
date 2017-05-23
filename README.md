@@ -24,7 +24,7 @@ $ brew install mongodb
 ```
 $ npm install -g ionic cordova
 ```
-3. In root folder install all the dependencies:
+3. In both fms/client/fms and fms/sever folder install all the dependencies:
 ```
 $ npm install
 ```
