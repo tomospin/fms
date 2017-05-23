@@ -15,20 +15,24 @@ A management system for managing sale orders between franchise owner and minor c
 <br />
 This is a project in CPE333 Software Engineering.
 
-# Prerequisites
-1. Install [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com)
+# Prerequisites 
+1. Install [Node.js](https://nodejs.org) for Linux/OSX users [windows users click on the link]
+``` for Linux/OSX for windows go to the webpage
+$ brew install node
 ```
+2. Install [MongoDB](https://www.mongodb.com) for Linux/OSX users [windows users click on the link]
+``` 
 $ brew install mongodb
 ```
-2. Install [Ionic Client](https://ionicframework.com/docs/intro/installation)
+3. Install [Ionic Client](https://ionicframework.com/docs/intro/installation)
 ```
 $ npm install -g ionic cordova
 ```
-3. In both fms/client/fms and fms/sever folder install all the dependencies:
+4. In both fms/client/fms and fms/sever folder install all the dependencies:
 ```
 $ npm install
 ```
-4. In fms/client/fms install additional lib [angular2-jwt](https://www.npmjs.com/package/angular2-jwt)
+5. In fms/client/fms install additional lib [angular2-jwt](https://www.npmjs.com/package/angular2-jwt)
 ```
 $ npm install angular2-jwt
 ```
