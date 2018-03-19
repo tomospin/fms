@@ -15,7 +15,7 @@ A management system for managing sale orders between franchise owner and minor c
 This is a project in CPE333 Software Engineering.
 
 # Prerequisites 
-1. Install [Node.js](https://nodejs.org) for Linux/OSX users [Windows users click on the link]
+1. Install [Node.js](https://nodejs.org) for Linux/OSX users. [Windows users click on the link]
 ``` for Linux/OSX for windows go to the webpage
 $ brew install node
 ```
